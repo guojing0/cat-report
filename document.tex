@@ -1,0 +1,132 @@
+\documentclass[12pt, a4paper]{article}
+
+% Basic packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsthm, amsfonts, amssymb}
+\usepackage{physics, mathtools}
+\usepackage{graphicx, float}
+\usepackage{enumerate}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+% Geometry settings
+\geometry{
+    left=1in,
+    right=1in,
+    top=1in,
+    bottom=1in,
+    bindingoffset=5mm
+}
+
+% Theorem environments
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\fund}{\pi_{1}}
+\newcommand{\pval}{v_{p}}
+
+% Title settings
+\title{Median graphs and CAT(0)-cube complex}
+\author{Jing Guo}
+\date{\today}
+
+\begin{document}
+
+    \maketitle
+    
+    \begin{abstract}
+        In this talk, we will introduce median graphs and hyperplanes in median graphs. We will also see some concrete examples that illustrate these definitions. After the first two parts, we will talk about the equivalence between median graphs and CAT(0)-cube complex.
+    \end{abstract}
+    
+    \tableofcontents
+    
+    \section{Median graphs}
+    
+    A \textit{graph} is a pair $G = (V, E)$ of sets such that $E \subseteq [V]^{2}$. We assume the graph $G$ to be undirected and simple (no multi-edges). The elements of $V$ are the \textit{vertices}, and the elements of $E$ are the \textit{edges}. The vertex set of the graph $G$ is referred to as $V(G)$, its edge set as $E(G)$. Two vertices $u$ and $v$ are adjacent if there is an edge $uv$ connecting them.
+    
+    We then introduce some typical examples of graphs:
+    
+    \begin{definition}[Complete graph]
+        A graph $G$ is complete, if all the vertices of $G$ are pairwise adjacent.
+        
+        A complete graph of order $n$ is denoted as $K_{n}$. 
+    \end{definition}
+    
+    \begin{definition}[Path]
+        A \textit{path} is a non-empty graph $P = (V, E)$ of the form
+        \begin{align*}
+            V(P) &= \{ x_{0}, x_{1}, \cdots, x_{k} \} \\
+            E(P) &= \{ x_{0} x_{1}, x_{1} x_{2}, \cdots x_{k-1} x_{k} \}
+        \end{align*}
+        where all $x_{i}$ are distinct.
+        
+        The \textit{length} of a path is its number of edges.
+    \end{definition}
+    
+    \begin{definition}[Cycle]
+        In the definition above, if $k \geq 3$ and $x_{0}$ coincides with $x_{k}$, the graph is called a $k$-cycle, denoted by $C_{k}$.
+    \end{definition}
+    
+    \begin{definition}[Forest and tree]
+        An acyclic graph $G$ that does not contain any cycles is called a \textit{forest}. A connected forest is called a \textit{tree}.
+        
+        It follows that a forest is a graph whose components are trees.
+    \end{definition}
+    
+    In this talk, we are mainly concerned with a specific type of graphs:
+    
+    \begin{definition}[Median graph]
+        A median graph is a graph $G$, in which every three vertices $u$, $v$, and $w$ have a unique \textit{median}: a vertex $m(u, v, w)$ that belongs to the shortest paths between each pair of vertices $(u, v)$, $(u, w)$, and $(v, w)$.
+    \end{definition}
+    
+    
+    
+    Examples: 4-cycle, tree (cherry claw), grid graph,
+    
+    None-ex: Triangles, complete graphs K2,3
+    
+    product DEF of median graphs is median
+    
+    Thm: The only regular DEF median graphs are the hypercubes DEF
+    
+    Fun Fact: Triangle-free graphs and median graphs algorithm
+    
+    Lemma: A median graph does not contain subgraphs isomorphic to K3 or K2,3 (Analogy to planar graphs theorem)
+    
+        triangles, complete graphs, circles, cherry, claw TODO
+    
+    \begin{exercise}
+        We have seen that the triangle $K_{3}$ (or $C_{3}$) is not median, the $4$-cycle $C_{4}$ is median. Are the $k$-cycles median, for $k \geq 5$?
+    \end{exercise}
+
+
+    
+    The definitions above are more or less standard, interested readers may read \cite{bollobas}.
+    
+    \nocite{*}
+    \bibliographystyle{plain}
+    \bibliography{biblio}
+    
+\end{document}
