@@ -172,6 +172,68 @@
     
     Interested readers may refer to \cite{survey} for more information on median graphs.
     
+    \section{Hyperplanes in median graphs}
+    
+    A fundamental tool in the study of median graphs is the notion of \textit{hyperplanes}:
+    
+    \begin{definition}[Hyperplane in a median graph \cite{genevois}]
+        In a median graph, a hyperplane $J$ is an equivalence class of edges with respect to the transitive closure of the relation that identifies two edges when they are opposite sides of a $4$-cycle.
+    \end{definition}
+    
+    In other words, one may think of hyperplanes as parallel classes of edges.
+    
+    To proceed, we also need the following definitions:
+    
+    \begin{definition}[Carrier/neighborhood and halfspace \cite{genevois}]
+        
+        The \textit{carrier} or \textit{neighborhood} $N(J)$ is the subgraph defined by all the vertices in the edges of the hyperplane $J$.
+        
+        If $G$ is a median graph, $G \setminus J$ is the graph obtained by removing all the edges of $J$ from $G$, and each connected component of $G \setminus J$ is a \textit{halfspace}.
+    \end{definition}
+    
+    The above definition may be illustrated in the following figure \cite{genevois}:
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{hyperplane}
+        \caption{The yellow hyperplane separates two halfspaces in the left and in the right.}
+    \end{figure}
+    
+     One should keep in mind that hyperplanes in fact capture the geometry of median graphs, motivated by the following theorem:
+    
+    \begin{theorem}[\cite{genevois}]
+        In a median graph, the following facts hold:
+        
+        \begin{enumerate}
+            \item Every hyperplane delimits exactly two halfspaces.
+            \item Carriers and halfspaces are convex.
+            \item A path is a geodesic if and only if it crosses each hyperplane at most once.
+            \item The distance between two vertices coincides with the number of hyperplanes separating them.
+        \end{enumerate}
+    \end{theorem}
+    
+    \section{Equivalence of median graphs and CAT(0)-cube complexes}
+    
+    In this last section, we will present the following theorem, which is the core of this talk:
+    
+    \begin{theorem}[\cite{hagen}]
+        Let $X$ be a CAT(0) cube complex, then
+        
+        \begin{enumerate}
+            \item $X^{(1)}$ is a median graph.
+            \item If $Y \subset X$ is a cubically convex subcomplex, then $Y^{(1)}$ is a median-convex subgraph of $X^{(1)}$.
+            \item If $Y \subset X$ is a full subcomplex of $X$ and $Y^{(1)}$ is median-convex in $X^{(1)}$, then $Y$ is a convex subcomplex.
+            \item For each hyperplane $H$ of $X$, due to an edge $e$, the convex split $\overleftarrow{e}$ and $\overrightarrow{e}$ is exactly the partition of $X^{(0)}$ induced by the two components of $X \setminus H$.
+        \end{enumerate}
+        
+        Conversely:
+        
+        \begin{enumerate}
+            \item If $G$ is a median graph, then there exists a unique CAT(0) cube complex $X$, such that $X^{(1)} \cong G$.
+            \item If $H \subset G$ is a median-convex subgraph, then the CAT(0) cube complex $Y$ with $1$-skeleton $H$ is a convex subcomplex of $X$, spanned by $H$.
+        \end{enumerate}
+    \end{theorem}
+    
     \nocite{*}
     \bibliographystyle{plain}
     \bibliography{biblio}
