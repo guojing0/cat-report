@@ -28,6 +28,7 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{non-example}[theorem]{Non-example}
 \newtheorem{example}[theorem]{Example}
 \newtheorem{exercise}[theorem]{Exercise}
 
@@ -95,35 +96,81 @@
         It follows that a forest is a graph whose components are trees.
     \end{definition}
     
+    The definitions above are more or less standard, interested readers may read \cite{bollobas}.
+    
     In this talk, we are mainly concerned with a specific type of graphs:
     
     \begin{definition}[Median graph]
         A median graph is a graph $G$, in which every three vertices $u$, $v$, and $w$ have a unique \textit{median}: a vertex $m(u, v, w)$ that belongs to the shortest paths between each pair of vertices $(u, v)$, $(u, w)$, and $(v, w)$.
     \end{definition}
     
+    To introduce an important property of median graphs, we need to define the \textit{Cartesian product of graphs}:
     
+    \begin{definition}[Cartesian product of graphs]
+        The Cartesian product $G \square H$ of graphs $G$ and $H$ is a graph, such that
+        \begin{enumerate}
+            \item Its vertex set is the Cartesian product of $V(G) \times V(H)$,
+            \item Two vertices $(u, u')$ and $(v, v')$ are adjacent in the product if and only if either $u = v$ and $u'$ is adjacent to $v'$ in $H$, or $u' = v'$ and $u$ is adjacent to $v$ in $G$.
+        \end{enumerate}
+    \end{definition}
     
-    Examples: 4-cycle, tree (cherry claw), grid graph,
+    We will now give some examples of median graphs. Specifically, we will try to prove that trees are median graphs.
     
-    None-ex: Triangles, complete graphs K2,3
+    \begin{proposition}
+        The $4$-cycle $C_{4}$ is a median graph.
+    \end{proposition}
     
-    product DEF of median graphs is median
+    \begin{proof}
+        The proof is left as an exercise.
+    \end{proof}
     
-    Thm: The only regular DEF median graphs are the hypercubes DEF
+    \begin{proposition}
+        Any tree graph is a median graph.
+    \end{proposition}
     
-    Fun Fact: Triangle-free graphs and median graphs algorithm
+    \begin{proof}
+        We may choose any three arbitrary vertices $a$, $b$, and $c$ in a tree graph $G$, which means that there exist unique (shortest) paths with (unordered) pairs of starting and end points $(a, b)$, $(a, c)$, and $(b, c)$. We denote them by $P(a, b)$, $P(a, c)$, and $P(b, c)$, respectively.
+        
+        Without loss of generality, we may choose any two paths, say $P(a, b)$ and $P(b, c)$. Because the tree is connected and acyclic, there exists a unique path from $a$ to $c$ that includes the path from $a$ to $b$, via some vertex $m$, from which the path goes to $c$. It implies that $m$ is the median vertex that also belongs to the third path $P(a, c)$.
+    \end{proof}
     
-    Lemma: A median graph does not contain subgraphs isomorphic to K3 or K2,3 (Analogy to planar graphs theorem)
+    Fun fact: Some trees have interesting names, such as \textit{cherry} $K_{1, 2}$ and \textit{claw} $K_{1, 3}$.
     
-        triangles, complete graphs, circles, cherry, claw TODO
+    Given what we already have and prove, how would you try to prove the following:
+    
+    \begin{exercise}[Grid graphs are median graphs]
+        The vertices of the \textit{grid graph} are the points in the plane with integer coordinates, and they form edges whenever two points are at distance $1$.
+        
+        Try to show that grid graphs are median graphs.
+    \end{exercise}
+    
+    With examples of median graphs in our hand, it is also beneficial to equip ourselves with non-examples, so that we could better understand median graphs:
+    
+    \begin{non-example}
+        The triangle $K_{3}$ and the complete bipartite graph $K_{2, 3}$ are not median graphs.
+    \end{non-example}
+    
+    In fact, with the above non-examples, we have the following (folklore) theorem that can help us detect any other non-examples.
+    
+    \begin{theorem}
+        Any median graph does not contain subgraph isomorphic to $K_{3}$ or $K_{2, 3}$.
+    \end{theorem}
     
     \begin{exercise}
         We have seen that the triangle $K_{3}$ (or $C_{3}$) is not median, the $4$-cycle $C_{4}$ is median. Are the $k$-cycles median, for $k \geq 5$?
     \end{exercise}
-
-
     
-    The definitions above are more or less standard, interested readers may read \cite{bollobas}.
+    At the end of this section, I would like to include the following two interesting facts related to median graphs:
+    
+    \begin{theorem}[\cite{imrich}]
+        It is computational equivalent to test whether a graph is median and whether it is triangle-free.
+    \end{theorem}
+    
+    \begin{theorem}[\cite{mulder}]
+        The only regular median graphs are the hypercubes.
+    \end{theorem}
+    
+    Interested readers may refer to \cite{survey} for more information on median graphs.
     
     \nocite{*}
     \bibliographystyle{plain}
