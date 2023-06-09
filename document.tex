@@ -249,6 +249,11 @@
         
         If $S_{x}$ is the set of halfspaces containing $x$, then any hyperplane $H$ separates $x$ from both $y$ and $z$ such that $x \notin \overleftarrow{H}$, so $\abs{S - S_{x}} \leq d_{1}(x, y) + d_{1}(x, z)$. By Lemma 1.12 from \cite{hagen}, we know that there exists a unique $m \in X^{(0)}$, such that $S_{m} = S$.
         
+        We notice that if the hyperplane $H$ separates $x$ and $y$, and $\overleftarrow{H}$ is the associated halfspace containing two of ${ x, y, z}$, then $m \in \overleftarrow{H}$. Since $H$ separates the two points, if $x$ is in $\overleftarrow{H}$, then $y$ is in $\overrightarrow{H}$.
+        
+        However, if $x$ is in $\overrightarrow{H}$, then $H$ cannot separate $x$ and $y$ from $m$, otherwise we would have $x, y \in \overrightarrow{H}$, contradicting the definition of $\overleftarrow{H}$.
+        
+        Therefore, we have $d_{1}(x, y) = d_{1}(x, m) + d_{1}(m, x)$, similarly for $x, z$ and $y, z$, thus $m$ is a median vertex.
     \end{proof}
     
     \nocite{*}
