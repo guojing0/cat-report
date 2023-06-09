@@ -234,6 +234,23 @@
         \end{enumerate}
     \end{theorem}
     
+    We first would like to show that $1$-skeleta of CAT(0) cube complexes are median:
+    
+    \begin{lemma}
+        If $X$ is a CAT(0) cube complex, then $X^{(1)}$ is a median graph.
+    \end{lemma}
+    
+    \begin{proof}
+        We may arbitrarily pick three vertices $x$, $y$, and $z$ from $X$. Let $H$ be a hyperplane, and $\overleftarrow{H}$ and $\overrightarrow{H}$ are the associated halfspaces. Without loss of generality, we can say that $\overleftarrow{H}$ contains at least two of the three vertices, by the pigeonhole principle.
+        
+        We may let $S$ be the set of halfspaces, as $H$ varies over all the hyperplanes. Notice that for each hyperplane, $S$ contains exactly one halfspace.
+        
+        We also notice that if $H$ and $H'$ are two halfspaces, then both $\overleftarrow{H}$ and $\overrightarrow{H'}$ contain at least two of the vertices from the three-vertex set ${ x, y, z}$, again, by the pigeonhole principle.
+        
+        If $S_{x}$ is the set of halfspaces containing $x$, then any hyperplane $H$ separates $x$ from both $y$ and $z$ such that $x \notin \overleftarrow{H}$, so $\abs{S - S_{x}} \leq d_{1}(x, y) + d_{1}(x, z)$. By Lemma 1.12 from \cite{hagen}, we know that there exists a unique $m \in X^{(0)}$, such that $S_{m} = S$.
+        
+    \end{proof}
+    
     \nocite{*}
     \bibliographystyle{plain}
     \bibliography{biblio}
