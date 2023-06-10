@@ -223,7 +223,7 @@
             \item $X^{(1)}$ is a median graph.
             \item If $Y \subset X$ is a cubically convex subcomplex, then $Y^{(1)}$ is a median-convex subgraph of $X^{(1)}$.
             \item If $Y \subset X$ is a full subcomplex of $X$ and $Y^{(1)}$ is median-convex in $X^{(1)}$, then $Y$ is a convex subcomplex.
-            \item For each hyperplane $H$ of $X$, due to an edge $e$, the convex split $\overleftarrow{e}$ and $\overrightarrow{e}$ is exactly the partition of $X^{(0)}$ induced by the two components of $X \setminus H$.
+            \item For each hyperplane $H$ of $X$, due to an edge $e$, the convex split $e_{L}$ and $e_{R}$ is exactly the partition of $X^{(0)}$ induced by the two components of $X \setminus H$.
         \end{enumerate}
         
         Conversely:
@@ -241,19 +241,53 @@
     \end{lemma}
     
     \begin{proof}
-        We may arbitrarily pick three vertices $x$, $y$, and $z$ from $X$. Let $H$ be a hyperplane, and $\overleftarrow{H}$ and $\overrightarrow{H}$ are the associated halfspaces. Without loss of generality, we can say that $\overleftarrow{H}$ contains at least two of the three vertices, by the pigeonhole principle.
+        We may arbitrarily pick three vertices $x$, $y$, and $z$ from $X$. Let $H$ be a hyperplane, and $H_{L}$ and $H_{R}$ are the associated halfspaces. Without loss of generality, we can say that $H_{L}$ contains at least two of the three vertices, by the pigeonhole principle.
         
         We may let $S$ be the set of halfspaces, as $H$ varies over all the hyperplanes. Notice that for each hyperplane, $S$ contains exactly one halfspace.
         
-        We also notice that if $H$ and $H'$ are two halfspaces, then both $\overleftarrow{H}$ and $\overrightarrow{H'}$ contain at least two of the vertices from the three-vertex set ${ x, y, z}$, again, by the pigeonhole principle.
+        We also notice that if $H$ and $H'$ are two halfspaces, then both $H_{L}$ and $H'_{L}$ contain at least two of the vertices from the three-vertex set ${ x, y, z}$, again, by the pigeonhole principle.
         
-        If $S_{x}$ is the set of halfspaces containing $x$, then any hyperplane $H$ separates $x$ from both $y$ and $z$ such that $x \notin \overleftarrow{H}$, so $\abs{S - S_{x}} \leq d_{1}(x, y) + d_{1}(x, z)$. By Lemma 1.12 from \cite{hagen}, we know that there exists a unique $m \in X^{(0)}$, such that $S_{m} = S$.
+        If $S_{x}$ is the set of halfspaces containing $x$, then any hyperplane $H$ separates $x$ from both $y$ and $z$ such that $x \notin H_{L}$, so $\abs{S - S_{x}} \leq d_{1}(x, y) + d_{1}(x, z)$. By Lemma 1.12 from \cite{hagen}, we know that there exists a unique $m \in X^{(0)}$, such that $S_{m} = S$.
         
-        We notice that if the hyperplane $H$ separates $x$ and $y$, and $\overleftarrow{H}$ is the associated halfspace containing two of ${ x, y, z}$, then $m \in \overleftarrow{H}$. Since $H$ separates the two points, if $x$ is in $\overleftarrow{H}$, then $y$ is in $\overrightarrow{H}$.
+        We notice that if the hyperplane $H$ separates $x$ and $y$, and $H_{L}$ is the associated halfspace containing two of ${ x, y, z}$, then $m \in H_{L}$. Since $H$ separates the two points, if $x$ is in $H_{L}$, then $y$ is in $H_{R}$.
         
-        However, if $x$ is in $\overrightarrow{H}$, then $H$ cannot separate $x$ and $y$ from $m$, otherwise we would have $x, y \in \overrightarrow{H}$, contradicting the definition of $\overleftarrow{H}$.
+        However, if $x$ is in $H_{R}$, then $H$ cannot separate $x$ and $y$ from $m$, otherwise we would have $x, y \in H_{R}$, contradicting the definition of $H_{L}$.
         
         Therefore, we have $d_{1}(x, y) = d_{1}(x, m) + d_{1}(m, x)$, similarly for $x, z$ and $y, z$, thus $m$ is a median vertex.
+    \end{proof}
+    
+    For the next theorem, we recall some definitions:
+    
+    \begin{definition}[Gate \cite{genevois-rev}]
+        Let $G$ be a graph and $H \subset G$ be a subgraph. A vertex $y \in H$ is called a \textit{gate} of a vertex $x \in G$, if for all $z \in H$, there always exists a path between $x$ and $z$ that passes through $y$.
+        
+        In other words, if such gate vertex $y$ exists, then it is unique and minimizes the distance between $x$ and $H$.
+        
+        As a consequence, it may be referred to as the projection of $x$ onto $H$. We call this the gate map, denoted by $g_{e}$.
+    \end{definition}
+    
+%    \begin{definition}[Hyperplane \cite{loeh}]
+%        For a CAT(0) cube complex $X$, a \textit{hyperplane} is a set ${ H_{L}, H_{R}}$, for $H_{L}, H_{R} \in H$, where $H$ is the set of halfspaces in $X$.
+%    \end{definition}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\linewidth]{halfspaces}
+        \caption{Halfspaces in a tree and a square grid. \cite{loeh}}
+    \end{figure}
+    
+    Now, we are ready to state and prove the following theorem:
+    
+    \begin{theorem}
+        If $X$ is a CAT(0) cube complex, H is the hyperplane dual to an edge $e$, and $H_{L}$ and $H_{R}$ are the associated halfspaces, then up to relabeling, $e_{L} = H_{L}^{(0)}$ and $e_{R} = H_{R}^{(0)}$.
+    \end{theorem}
+    
+    \begin{proof}
+        We first recall that if for two edges $e$ and $f$, $e_{L} = f_{L}$ and $e{R} = f_{R}$, then we call them equivalent edges, denoted by $\sim$. Second, if $e$ and $f$ are dual to the same hyperplane $H$ (see Figure 2 (b)), then we say $e \sim' f$.
+        
+        We notices that the edges $f$ with $e \sim' f$ are exactly the edges with one endpoint in each halfspace $H_{L}$ and $H_{R}$. Thus we may call the former edge set $F'$ and the latter edge set $F$.
+        
+        
     \end{proof}
     
     \nocite{*}
