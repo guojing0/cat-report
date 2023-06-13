@@ -279,15 +279,30 @@
     Now, we are ready to state and prove the following theorem:
     
     \begin{theorem}
-        If $X$ is a CAT(0) cube complex, H is the hyperplane dual to an edge $e$, and $H_{L}$ and $H_{R}$ are the associated halfspaces, then up to relabeling, $e_{L} = H_{L}^{(0)}$ and $e_{R} = H_{R}^{(0)}$.
+        If $X$ is a CAT(0) cube complex, $H$ is the hyperplane dual to an edge $e$, and $H_{L}$ and $H_{R}$ are the associated halfspaces, then up to relabeling, $e_{L} = H_{L}^{(0)}$ and $e_{R} = H_{R}^{(0)}$.
     \end{theorem}
     
     \begin{proof}
-        We first recall that if for two edges $e$ and $f$, $e_{L} = f_{L}$ and $e{R} = f_{R}$, then we call them equivalent edges, denoted by $\sim$. Second, if $e$ and $f$ are dual to the same hyperplane $H$ (see Figure 2 (b)), then we say $e \sim' f$.
+        We first recall that if for two edges $e$ and $f$, $e_{L} = f_{L}$ and $e{R} = f_{R}$, then we call them equivalent edges, denoted by $\sim$. Second, if $e$ and $f$ are dual to the same hyperplane $H$ (see Figure 2.b), then we say $e \sim' f$.
         
         We notices that the edges $f$ with $e \sim' f$ are exactly the edges with one endpoint in each halfspace $H_{L}$ and $H_{R}$. Thus we may call the former edge set $F'$ and the latter edge set $F$.
         
+        We may suppose that the edge $f$ is in the former set $F'$, and $m_{e}$ and $m_{f}$ are two vertices of $e$ and $f$, respectively. By definition, it is possible to find a shortest path $P(m_{e}, m_{f})$ in the hyperplane $H$. It implies that every edge of this path is in fact a midcube of a square ($C_{4}$) inside $X$. By definition, it is then possible to find a ``strip'' in $X$ of the form $P \times [-1/2, 1/2]$, such that
+        \[ m_{e} \times [-1/2, 1/2] = e \quad m_{f} \times [-1/2, 1/2] = f \]
         
+        We notice that if $u$ and $v$ are the vertices of $f$ in $H \times \{ 1/2 \}$ and $H \times { - 1 / 2}$, respectively. Then by the gate map $g_{e}(u)$ and $g_{e}(v)$, we obtain the vertices of $P \times {1/2}$ and $P \times {-1/2}$, which implies that $f$ is in fact in $F$.
+        
+        Now similarly, if we consider the other direction: We may suppose that the edge $f$ is in the latter set $F$, $u$ and $v$ two vertices of $f$, $g(u)$ and $g(v)$ two gate maps (vertices of $e$), and finally, $P'(u, g(u))$ the shortest path from $u$ to $g(u)$, and $P \cdot e$ the shortest path from $v$ to $g(v)$.
+        
+        For each $w \in P'$, by definition it is possible to find a median vertex $m(w)$ of $v, w, g(v)$. If $U$ is a hyperplane separating $m(w)$ and $w$, then for each of its halfspaces, $U_{L}$ contains $v, g(v), m(w)$ and $U_{R}$ contains $w$.
+        
+        Notice that if $U \neq H$, then $U$ does not separate $u, v, g(u), g(v)$. We notice that $U$ does not separate $v$ and $g(v)$, so we have that $u, v, g(u), g(v)$ are in fact in $U_{L}$.
+        
+        We already know that $P'$ is the shortest path, which implies that it contains at most one edge dual to $U$, we have $w \in U_{L}$, thus we reach a contradiction, which then further implies that $U = H$.
+        
+        Now we suppose that $U = H$, meaning that $v, g(v) \in U_{L}$ and $u, g(u) \in U_{R}$, and $w \in H_{R}$. We recall that $m(w)$ is on the shortest path between $v$ and $g(v)$, so $m(w) \in H_{L}$, thus $H$ separates $w$ and $m(w)$. Therefore $w$ and $m(w)$ are adjacent by an edge $e(w)$.
+        
+        So far, we have shown that $F' = F$, meaning that an edge $f$ has vertices in the two halfspaces $H_{L}$ and $H_{R}$ if and only if $f$ also has vertices in the two median halfspaces $e_{L}$ and $e_{R}$, so we can see that the two notions of hyperplanes coincide.
     \end{proof}
     
     \nocite{*}
